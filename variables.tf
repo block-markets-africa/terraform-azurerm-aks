@@ -134,6 +134,12 @@ variable "rbac_aad_managed" {
   default     = false
 }
 
+variable "enable_azure_rbac" {
+  description = "Will the AAD integration use Azure RBAC?"
+  type        = bool
+  default     = false
+}
+
 variable "rbac_aad_admin_group_object_ids" {
   description = "Object ID of groups with admin access."
   type        = list(string)
@@ -302,15 +308,15 @@ variable "ingress_application_gateway_subnet_id" {
   default     = null
 }
 variable "identity_type" {
-  description = "(Optional) The type of identity used for the managed cluster. Conflict with `client_id` and `client_secret`. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well."
+  description = "(Optional) The type of identity used for the managed cluster. Conflict with `client_id` and `client_secret`. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both). If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well."
   type        = string
   default     = "SystemAssigned"
 }
 
-variable "user_assigned_identity_id" {
+variable "user_assigned_identity_ids" {
   description = "(Optional) The ID of a user assigned identity."
-  type        = string
-  default     = null
+  type        = list(string)
+  default     = []
 }
 
 variable "enable_host_encryption" {
@@ -330,4 +336,4 @@ variable "oidc_issuer_enabled" {
   type        = string
   default     = false
 }
- 
+
