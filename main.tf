@@ -16,6 +16,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   dns_prefix              = var.prefix
   sku_tier                = var.sku_tier
   private_cluster_enabled = var.private_cluster_enabled
+  oidc_issuer_enabled     = var.oidc_issuer_enabled
 
   linux_profile {
     admin_username = var.admin_username

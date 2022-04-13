@@ -324,3 +324,10 @@ variable "node_resource_group" {
   type        = string
   default     = null
 }
+
+variable "oidc_issuer_enabled" {
+  description = "Enable or Disable the OIDC issuer URL. Enable to make use of Workload Identities"
+  type        = string
+  default     = false
+}
+ 
