@@ -79,3 +79,10 @@ output "admin_username" {
 output "admin_password" {
   value = length(azurerm_kubernetes_cluster.main.kube_admin_config) > 0 ? azurerm_kubernetes_cluster.main.kube_admin_config.0.password : ""
 }
+
+output "oidc_issuer_url" {
+  value = var.oidc_issuer_enabled ? azurerm_kubernetes_cluster.main.oidc_issuer_url : ""
+}
+
+
+
