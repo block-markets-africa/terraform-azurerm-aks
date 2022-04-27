@@ -20,6 +20,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   http_application_routing_enabled  = var.enable_http_application_routing
   azure_policy_enabled              = var.enable_azure_policy
   role_based_access_control_enabled = var.enable_role_based_access_control
+  open_service_mesh_enabled         = var.open_service_mesh_enabled
   linux_profile {
     admin_username = var.admin_username
 

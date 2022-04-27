@@ -337,3 +337,10 @@ variable "oidc_issuer_enabled" {
   default     = false
 }
 
+
+variable "open_service_mesh_enabled" {
+  description = "Set to true to enable Open Service Mesh"
+  type        = string
+  default     = false
+}
+
